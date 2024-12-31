@@ -9,7 +9,7 @@ export async function createSessionClient() {
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
 
   const sessionCookies = await cookies();
-  const session = sessionCookies.get("my-custom-session");
+  const session = sessionCookies.get("appwrite-session");
   if (!session || !session.value) {
     throw new Error("No session");
   }
@@ -33,7 +33,7 @@ export async function createAdminClient() {
     get account() {
       return new Account(client);
     },
-    get databasse() {
+    get database() {
         return new Databases(client);
     },
     get user() {
