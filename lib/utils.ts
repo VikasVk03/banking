@@ -205,10 +205,12 @@ export const authFormSchema = (type: string) => z.object({
   postalCode: type === 'sign-in' ? z.string().optional() : z.string().min(3).max(6),
   dateOfBirth: type === 'sign-in' ? z.string().optional() : z.string().min(3),
   ssn: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  // aadhaar: type === 'sign-in' ? z.string().optional() : z.string().regex(/^\d{12}$/, "Invalid Aadhaar number"),
+  // panCard: type === 'sign-in' ? z.string().optional() : z.string().regex(/^[A-Z]{5}\d{4}[A-Z]$/, "Invalid PAN Card number"),
   // both
   email: z.string().email(),
   password: z.string().min(8),
 })
 
 
-// ssn - social security number, change to adhaar and PanCard number
+// ssn - social security number, change to adhaar and PanCard number 

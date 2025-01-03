@@ -37,7 +37,16 @@ const AuthForm = ({ type }: { type: string }) => {
       resolver: zodResolver(formSchema),
       defaultValues: {
         email: "",
-        password: ''
+        password: "",
+        firstName: "",
+        lastName: "",
+        address1: "",
+        city: "",
+        state: "",
+        postalCode: "",
+        dateOfBirth: "",
+        ssn: "",
+        
       },
     })
    
@@ -61,8 +70,8 @@ const AuthForm = ({ type }: { type: string }) => {
             email: data.email,
             password: data.password
           }
-
-          const newUser = await signUp(data);
+          
+          const newUser = await signUp(userData);
 
           setUser(newUser);
         }
@@ -173,4 +182,4 @@ const AuthForm = ({ type }: { type: string }) => {
   )
 }
 
-export default AuthForm
+export default AuthForm 
